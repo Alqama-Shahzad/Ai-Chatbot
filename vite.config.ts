@@ -9,6 +9,10 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    https: mode === 'production',
+  },
+  define: {
+    'process.env.VITE_GEMINI_API_KEY': JSON.stringify(process.env.VITE_GEMINI_API_KEY),
   },
   plugins: [
     react(),
